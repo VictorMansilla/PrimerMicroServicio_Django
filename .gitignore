@@ -1,0 +1,6 @@
+/venv/
+.env
+scraping.py
+/.pytest_cache/
+pytest.ini
+/MicroServicio/tests/
