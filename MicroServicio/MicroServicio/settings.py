@@ -5,12 +5,14 @@ import os
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = os.getenv('SECRET_KEY', default='your secret key')
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-DEBUG = os.getenv('DEBUG')
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
